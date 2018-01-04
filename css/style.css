@@ -1,0 +1,11 @@
+.box{
+    background:white;
+    width:300px;
+    border-radius:60px;
+    margin: 0 auto 0 auto;
+}
+
+body {
+    background: #c1dbda;
+    font-family: 'Titillum Web', sans-serif;
+}

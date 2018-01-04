@@ -1,0 +1,92 @@
+body {
+    background: #A9A9A9;
+}
+
+html{
+    overflow-y: scroll;
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.form {
+    background: #006699;
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 50px;
+    border-radius: 4px;
+}
+
+a {
+  text-decoration: none;
+  color: #1ab188;
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+}
+
+a:hover {
+  color: #179b77;
+}
+
+h3, h2{
+    color: #ffffff;
+    margin: 0 0 30px;
+    text-align: center;
+    font-weight: 200;
+}
+
+.active-tab > div:last-child {
+    display: none;
+}
+
+label.switch {
+  -webkit-transform: translateY(50px);
+          transform: translateY(50px);
+  left: 2px;
+  font-size: 14px;
+}
+
+label.active .req {
+  opacity: 0;
+}
+
+.tab-switch{
+    margin: 0 0 50px 0;
+}
+
+.tab-switch .active a {
+  background: #1ab188;
+  color: #ffffff;
+}
+
+.tab-switch li a:hover {
+  background: #179b77;
+  color: #ffffff;
+}
+
+.tab-switch {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 40px 0;
+}
+.tab-switch:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.tab-switch li a {
+  display: block;
+  text-decoration: none;
+  padding: 15px;
+  background: rgba(160, 179, 176, 0.25);
+  color: #a0b3b0;
+  font-size: 20px;
+  float: left;
+  width: 50%;
+  text-align: center;
+  cursor: pointer;
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+}
