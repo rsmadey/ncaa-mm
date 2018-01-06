@@ -43,5 +43,13 @@ function createUser(){
 	    '&pass1=' + password1 +
 	    '&pass2=' + password2,
     });
-    return response['responseText'];
+    var status = response['responseText'];
+    if(status == 'success'){
+	return 'login.php?newuser=success';
+    }else if(status == 'failed password'){
+	return 'login.php?newuser=fpass';
+    }else{
+	return 'login.php?newuser=insert';
+    }
+
 };
