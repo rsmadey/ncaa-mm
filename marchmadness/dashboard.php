@@ -52,7 +52,6 @@ while($row = mysqli_fetch_assoc($games_response)){
         $games_team_name[$row['round']][$row['game_id']][$game_id_f] = $teamNames[$row['favorite_id']];
         $games_team_name[$row['round']][$row['game_id']][$game_id_u] = $teamNames[$row['underdog_id']];
 }
-print_r($games_team_name);exit;
 $query_picks = "SELECT round, game_id, pick FROM pick WHERE user_id='".$_SESSION['id']."' and year = 2018";
 $picks_response = database_query($query_games);
 
