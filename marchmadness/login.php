@@ -10,18 +10,18 @@ if($_SESSION['username']!=null && isset($_SESSION['username']))
 if(isset($_POST['login']))
 {
     require_once 'utils.inc';
-    $response = database_query($query);
     $login_user = safe_input($_POST['luser']);
     $login_password = safe_input($_POST['lpass']);
     $query = "SELECT id,username,first_name,last_name,permissions FROM user WHERE username = '$login_user' and password = '". MD5($login_password) . "'";
     $response = database_query($query);
-    if(isset($response))
+    $rows = mysqli_fetch_row($response);
+    if(isset($rows))
     {
 	$_SESSION['username']=$login_user;
-	$_SESSION['id']=$response[0];
-	$_SESSION['first_name']=$response[2];
-	$_SESSION['last_name']=$response[3];
-	$_SESSION['permissions']=$response[4];
+	$_SESSION['id']=$rows[0];
+	$_SESSION['first_name']=$rows[2];
+	$_SESSION['last_name']=$rows[3];
+	$_SESSION['permissions']=$rows[4];
 	echo "dashboard.php";
     }else{
 	echo "login.php?login=failed";
@@ -64,7 +64,7 @@ if(isset($_POST['createUser']))
     <meta content="text/html"; charset="UTF-8" />
     <link rel="stylesheet" href="css/styles.css">
     <script src="javascript/login.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+    $<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
 </head>
 <body>
 <div class="tab active">

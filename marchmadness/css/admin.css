@@ -1,0 +1,25 @@
+.usertab {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+.userTab {
+    border: 1px solid #ccc;
+    align: center;
+}
+
+.round{
+    border: 5px solid;
+    width: 80%;
+    align: center;
+}
+
+.division{
+    border: 1px solid;
+}
+
+select{
+    width: 100px;
+}
