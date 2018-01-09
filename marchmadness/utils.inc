@@ -4,12 +4,12 @@ include_once 'config.inc';
 
 
 function safe_input($input){
-    //$dbhandle = mysqli_connect($hostname, $mysql_username, $mysqlpassword, $dbname) or die("Unable to connect");
+    $dbhandle = mysqli_connect($hostname, $mysql_username, $mysqlpassword, $dbname) or die("Unable to connect");
     if(false)
     {
         $input = strip_tags(trim($input));
     }
-    //$safe_input = mysqli_real_escape_string($dbhandle,trim($input));
+    $safe_input = mysqli_real_escape_string($dbhandle,trim($input));
     $safe_input = trim($input);
     return $safe_input;
 }
