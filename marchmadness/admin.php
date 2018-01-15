@@ -55,12 +55,8 @@ while($row = mysqli_fetch_assoc($games_response)){
 	$games_team_name[$row['round']][$game_id_u] = $teamNames[$row['underdog_id']];
 }
 
-$query_users = "SELECT username, first_name, last_name FROM user";
+$query_users = "SELECT id,username, first_name, last_name FROM user";
 $users_response = database_query($query_users);
-
-while($row = mysqli_fetch_assoc($users_response)){
-	$players[] = $row;
-}
 
 $query_games = "SELECT round, game_id, favorite_id, underdog_id FROM game WHERE year = '2018'";
 $games_response = database_query($query_games);
@@ -73,14 +69,20 @@ while($row = mysqli_fetch_assoc($games_response)){
         $set_games[$row['round']][$row['game_id']][$game_id_f] = $teamNames[$row['favorite_id']];
         $set_games[$row['round']][$row['game_id']][$game_id_u] = $teamNames[$row['underdog_id']];
 }
-
-
-$query_picks = "SELECT round, game_id, pick FROM pick WHERE user_id='".$_SESSION['id']."' and year = 2018";
-$picks_response = database_query($query_games);
+$query_picks = "SELECT user_id, game_id, team_id FROM pick WHERE year = 2018";
+$picks_response = database_query($query_picks);
+$player_picks = array();
 while($row = mysqli_fetch_assoc($picks_response)){
-
+    $player_picks[$row['user_id']][$row['game_id']] = $row['team_id'];
 }
-
+$query_users = "SELECT id, username,first_name, last_name FROM user";
+$users_response = database_query($query_users);
+$players = array();
+while($row = mysqli_fetch_assoc($users_response)){
+    $players[$row['id']][0]=$row['username'];
+    $players[$row['id']][1]=$row['first_name'];
+    $players[$row['id']][2]=$row['last_name'];
+}
 
 
 ?>
@@ -254,57 +256,17 @@ if($_SESSION['permissions'] > 0){
 </div>
 <div id="64picks" class="userTab" style="width=80%">
     <h3> round of 64</h3>
-    <table class="round">
+    <div>
+    <input type="checkbox" id="round64start" />
+    <button onclick='saveRound("64");'>Round has Started</button>
+    </div>
     <?php
-	echo '<tr>';
-	foreach($set_games as $key => $game){
-	    echo "<th>hello</th>";
-	    echo "<th>".$game[$key."a"]."</th>";
-	}
-	echo '</tr>';
+	include 'round_64_pick.php';
     ?>
-    </table>
 </div>
 <div id="32" class="userTab">
     <h3> round of 32</h3>
-    <table class="round" style="witdh=80%">
-	<tr>
-	    <th class="division">
-		<h4>East</h4>
-		<?php
-		for($x=1;$x<=4;$x++){
-			echo "<div id='e".$x."'><select></select><select></select></div></br>";
-		}
-		?>
-	    </th>
-	    <th class="division">
-		<h4>Midwest</h4>
-		<?php
-		for($x=1;$x<=4;$x++){
-			echo "<div id='m".$x."'><select></select><select></select></div></br>";
-		}
-		?>
-	    </th>
-	</tr>
-	<tr>
-	    <th class="division">
-		<h4>West</h4>
-		<?php
-		for($x=1;$x<=4;$x++){
-			echo "<div id='w".$x."'><select></select><select></select></div></br>";
-		}
-		?>
-	    </th>
-	    <th class="division">
-		<h4>South</h4>
-		<?php
-		for($x=1;$x<=4;$x++){
-			echo "<div id='s".$x."'><select></select><select></select></div></br>";
-		}
-		?>
-	    </th>
-	</tr>
-    </table>
+    <?php include 'round_32.php'; ?>
 </div>
 <div id="discusion" class="userTab">
     <h3> discusion board</h3>

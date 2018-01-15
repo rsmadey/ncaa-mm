@@ -23,3 +23,39 @@
 select{
     width: 100px;
 }
+
+th.rotate {
+    height: 140px;
+    border: 2px solid;
+}
+
+.tableth{
+    border: 2px solid;
+}
+
+th.rotate{
+    border: 10px solid;
+  -ms-transform:skew(-45deg,0deg);
+  -moz-transform:skew(-45deg,0deg);
+  -webkit-transform:skew(-45deg,0deg);
+  -o-transform:skew(-45deg,0deg);
+  transform:skew(-45deg,0deg);
+}
+
+th.rotate > div{
+    border: 10px solid;
+  -ms-transform:skew(-45deg,0deg);
+  -moz-transform:skew(-45deg,0deg);
+  -webkit-transform:skew(-45deg,0deg);
+  -o-transform:skew(-45deg,0deg);
+  transform:skew(-45deg,0deg);
+}
+
+th.rotate span{
+    border: 10px solid;
+  -ms-transform:skew(-45deg,0deg);
+  -moz-transform:skew(-45deg,0deg);
+  -webkit-transform:skew(-45deg,0deg);
+  -o-transform:skew(-45deg,0deg);
+  transform:skew(-45deg,0deg);
+}
