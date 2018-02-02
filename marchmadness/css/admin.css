@@ -33,7 +33,7 @@ th.rotate {
     border: 2px solid;
 }
 
-th.rotate{
+/*th.rotate{
     border: 10px solid;
   -ms-transform:skew(-45deg,0deg);
   -moz-transform:skew(-45deg,0deg);
@@ -58,4 +58,4 @@ th.rotate span{
   -webkit-transform:skew(-45deg,0deg);
   -o-transform:skew(-45deg,0deg);
   transform:skew(-45deg,0deg);
-}
+}*/

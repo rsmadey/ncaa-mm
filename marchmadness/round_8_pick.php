@@ -1,6 +1,6 @@
 <?php
 include_once 'utils.inc';
-$round = '1';
+$round = '4';
 
 $query_games = "SELECT round, game_id, favorite_id, underdog_id FROM game WHERE year = '2018' AND round = $round";
 $games_response = database_query($query_games);
@@ -35,7 +35,7 @@ foreach($players as $player){
     echo "<th class='rotate'><div><span>".$player[0]." ".$player[1]."</span></div></th>";
 }
 echo '</tr>';
-foreach($set_games[1] as $key => $game){
+foreach($set_games[4] as $key => $game){
     echo '<tr>';
     echo "<th><span>".$game[$key."a"]."</span></th>";
     foreach($players as $player_key => $player){

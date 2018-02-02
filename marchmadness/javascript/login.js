@@ -1,4 +1,4 @@
-/*$('.tab a').on('click', function (e) {
+$('.tab a').on('click', function (e) {
 
   e.preventDefault();
 
@@ -12,7 +12,7 @@
   $(target).fadeIn(600);
 
 });
-*/
+
 
 function login(){
     var user = document.forms["login"]["loginusername"].value;	

@@ -1,6 +1,59 @@
+body {
+    background-color: lightblue;
+}
+
+h1 {
+    color: black;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+.tab-block{
+    width: $tabwidth;
+    vertical-align: baseline;
+    .tablinks{
+    }
+}
+
 .usertab {
     display: none;
     padding: 6px 12px;
     border: 1px solid #ccc;
     border-top: none;
+}
+
+.tab {
+    border: 1px solid #FFF;
+    overflow: hidden;
+    background-color: grey;
+}
+
+.tab button{
+    background-color: inherit;
+    border: none;
+    height: 25px;
+
+}
+
+.tab button:hover{
+    background-color: blue;
+
+}
+
+.userTab {
+    border: 5px;
+    background-color: darkblue;
+}
+
+select {
+    border: none;
+    background-color: white;
+}
+
+button {
+    border: none;
+}
+button hover{
+    border: none;
+    background-color: black;
 }

@@ -33,3 +33,36 @@ function saveGame(year, game, round, favorite, underdog, winner) {
 	alert("didn't process");
     }
 }
+
+function setWinner(game, winner, round) {
+    var response = $.ajax({
+	type: 'POST',
+	async: false,
+	url: 'admin.php',
+	data: 'winner=' + winner +
+	    '&game=' + game +
+	    '&round=' + round +
+	    '&setWinner=true'
+    });
+	return response.responseText;
+
+}
+
+function saveRound(round){
+
+    var set;
+    if(document.getElementById("round" + round + "start").checked){
+        set = 1;
+    }else{
+        set = 0;
+    }
+
+    $.ajax({
+	type: 'POST',
+	async: true,
+	url: 'admin.php',
+	data: 'startRound=true' +
+	    '&round=' + round +
+	    '&startRound=' + set
+    });
+}
